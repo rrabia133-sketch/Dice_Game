@@ -1,14 +1,14 @@
-import styled from "styled-components";
-const button = styled.button`
-  background-color: black;
-  color: white;
-  padding: 10px;
-`;
+import { useState } from "react";
+import StartGame from "./components/StartGame";
+import GamePlay from "./components/GamePlay";
+
 function App() {
+  const [isgamestart, setisgamestart] = useState(true);
+  const togglegameplay = () => {
+    setisgamestart((prev) => !prev); // is just for ulta sedha like true ha to false ho like this.
+  };
   return (
-    <>
-      <button>This is styled component button</button>
-    </>
+    <>{isgamestart ? <GamePlay /> : <StartGame toggle={togglegameplay} />}</>
   );
 }
 
