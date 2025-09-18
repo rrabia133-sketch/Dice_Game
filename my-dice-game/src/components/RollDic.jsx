@@ -5,19 +5,9 @@ import dic3 from "../images/dice_3.png";
 import dic4 from "../images/dice_4.png";
 import dic5 from "../images/dice_5.png";
 import dic6 from "../images/dice_6.png";
-import { useState } from "react";
-export default function RollDic() {
-  const [currentdice, setcurrentdice] = useState(1);
+
+export default function RollDic({ currentdice, rolldice }) {
   const diceImages = [dic1, dic2, dic3, dic4, dic5, dic6];
-
-  const rendomnumbergenerate = (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min);
-  };
-
-  const rolldice = () => {
-    const randomnumber = rendomnumbergenerate(1, 7);
-    setcurrentdice(randomnumber);
-  };
 
   return (
     <DiceContainer>

@@ -1,18 +1,27 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-export default function NumberSelector() {
+export default function NumberSelector({
+  setselectnumber,
+  selectednumber,
+  error,
+  seterror,
+}) {
   const arrnumber = [1, 2, 3, 4, 5, 6];
-  const [selectednumber, setselectnumber] = useState();
+  const numberselector = (value) => {
+    setselectnumber(value);
+    seterror("");
+  };
+
   console.log(selectednumber);
   return (
     <NumberSelectorContainer>
+      <p className="error">{error}</p>
       <div className="flex">
         {arrnumber.map((value, index) => (
           <Box
             isSelected={value == selectednumber}
             key={index}
-            onClick={() => setselectnumber(value)}
+            onClick={() => numberselector(value)}
           >
             {value}
           </Box>
@@ -28,7 +37,13 @@ const NumberSelectorContainer = styled.div`
   flex-direction: column;
   align-items: end;
   width: 100%;
-  
+  .error {
+    color: red;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
   .flex {
     display: flex;
     gap: 24px;
@@ -92,10 +107,8 @@ const Box = styled.div`
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: ${(props) =>
-    props.isSelected ? "black" : "white"};
-  color: ${(props) =>
-    props.isSelected ? "white" : "black"};
+  background-color: ${(props) => (props.isSelected ? "black" : "white")};
+  color: ${(props) => (props.isSelected ? "white" : "black")};
 
   &:hover {
     transform: scale(1.05);
