@@ -42,6 +42,8 @@ export default function GamePlay() {
         />
       </div>
       <RollDic currentdice={currentdice} rolldice={rolldice} />
+      <button>Reset Score</button>
+      <button>Show Rules</button>
     </Main>
   );
 }
