@@ -3,17 +3,21 @@ import NumberSelector from "./NumberSelector";
 import TotalScore from "./TotalScore";
 import RollDic from "./RollDic";
 import { useState } from "react";
-
+import Showrules from "./showrules";
 export default function GamePlay() {
   const [score, setscore] = useState(0);
   const [selectednumber, setselectnumber] = useState();
   const [currentdice, setcurrentdice] = useState(1);
   const [error, seterror] = useState("");
+  const [rules, setrules] = useState(false);
 
   const rendomnumbergenerate = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
+  const resetscore = () => {
+    setscore(0);
+  };
   const rolldice = () => {
     if (!selectednumber) {
       seterror("You have not selected any number");
@@ -44,9 +48,12 @@ export default function GamePlay() {
       </div>
       <RollDic currentdice={currentdice} rolldice={rolldice} />
       <div className="btns">
-        <Outline>Reset Score</Outline>
-        <BlackButton>Show Rules</BlackButton>
+        <Outline onClick={resetscore}>Reset Score</Outline>
+        <BlackButton onClick={() => setrules((prev) => !prev)}>
+          Show Rules
+        </BlackButton>
       </div>
+      {rules && <Showrules />}
     </Main>
   );
 }
@@ -70,6 +77,7 @@ const Main = styled.div`
 `;
 
 const Outline = styled.button`
+  margin-top: 20px;
   width: 220px;
   height: 44px;
   background-color: white;
