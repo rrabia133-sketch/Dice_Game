@@ -3,6 +3,7 @@ import NumberSelector from "./NumberSelector";
 import TotalScore from "./TotalScore";
 import RollDic from "./RollDic";
 import { useState } from "react";
+
 export default function GamePlay() {
   const [score, setscore] = useState(0);
   const [selectednumber, setselectnumber] = useState();
@@ -42,8 +43,10 @@ export default function GamePlay() {
         />
       </div>
       <RollDic currentdice={currentdice} rolldice={rolldice} />
-      <button>Reset Score</button>
-      <button>Show Rules</button>
+      <div className="btns">
+        <button>Reset Score</button>
+        <button>Show Rules</button>
+      </div>
     </Main>
   );
 }
@@ -54,5 +57,32 @@ const Main = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: end;
+  }
+  .btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 220px;
+    
+    button {
+      width: 220px;
+      height: 44px;
+      background-color: black;
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s background ease-in;
+      
+      &:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+    }
   }
 `;

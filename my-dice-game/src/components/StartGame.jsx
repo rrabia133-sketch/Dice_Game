@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import dice from "../images/dic.png";
+import { Button } from "./Button";
 export default function StartGame({ toggle }) {
   return (
     <div>
@@ -60,35 +61,5 @@ const Container = styled.div`
         font-size: 36px;
       }
     }
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 18px;
-  gap: 10px;
-  width: 220px;
-  height: 44px;
-  background-color: black;
-  border-radius: 5px;
-  color: white;
-  transition: 0.4s background ease-in;
-  cursor: pointer;
-  border: 1px solid transparent;
-
-  &:hover {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    transition: 0.3s background ease-in;
-  }
-
-  @media (max-width: 480px) {
-    width: 180px;
-    height: 40px;
-    font-size: 14px;
   }
 `;
