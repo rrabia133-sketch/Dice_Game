@@ -37,6 +37,7 @@ const NumberSelectorContainer = styled.div`
   flex-direction: column;
   align-items: end;
   width: 100%;
+
   .error {
     color: red;
     font-size: 24px;
