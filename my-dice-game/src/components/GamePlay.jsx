@@ -44,8 +44,8 @@ export default function GamePlay() {
       </div>
       <RollDic currentdice={currentdice} rolldice={rolldice} />
       <div className="btns">
-        <button>Reset Score</button>
-        <button>Show Rules</button>
+        <Outline>Reset Score</Outline>
+        <BlackButton>Show Rules</BlackButton>
       </div>
     </Main>
   );
@@ -66,23 +66,40 @@ const Main = styled.div`
     gap: 10px;
     margin: 20px auto;
     max-width: 220px;
-    
-    button {
-      width: 220px;
-      height: 44px;
-      background-color: black;
-      color: white;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s background ease-in;
-      
-      &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-      }
-    }
+  }
+`;
+
+const Outline = styled.button`
+  width: 220px;
+  height: 44px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s background ease-in;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`;
+
+const BlackButton = styled.button`
+  width: 220px;
+  height: 44px;
+  background-color: black;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s background ease-in;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
   }
 `;
